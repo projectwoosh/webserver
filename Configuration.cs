@@ -38,36 +38,39 @@ namespace TheWoosh.HTTPServer
             string[] lines = System.IO.File.ReadAllLines("configuration.ini");
             foreach (string line in lines)
             {
-                string[] parts = line.Split(new char[] { '=' }, 2);
-                switch (parts[0].ToLower())
+                if (line.Length != 0 && line[0] != '#')
                 {
-                    case "certlocation":
-                        CertificateLocation = parts[1];
-                        break;
-                    case "certpassword":
-                        CertificatePassword = parts[1];
-                        break;
-                    case "contentdirectory":
-                        ContentDirectory = parts[1];
-                        break;
-                    case "errorpage404":
-                        ErrorPage404 = parts[1];
-                        break;
-                    case "hostname":
-                        HostName = parts[1];
-                        break;
-                    case "keepalive":
-                        KeepAlive = Convert.ToBoolean(parts[1]);
-                        break;
-                    case "keepalivelevel":
-                        KeepAliveLevel = Convert.ToInt32(parts[1]);
-                        break;
-                    case "listenertimeout":
-                        ListenerTimeout = Convert.ToInt32(parts[1]);
-                        break;
-                    case "servername":
-                        ServerName = parts[1];
-                        break;
+                    string[] parts = line.Split(new char[] { '=' }, 2);
+                    switch (parts[0].ToLower())
+                    {
+                        case "certlocation":
+                            CertificateLocation = parts[1];
+                            break;
+                        case "certpassword":
+                            CertificatePassword = parts[1];
+                            break;
+                        case "contentdirectory":
+                            ContentDirectory = parts[1];
+                            break;
+                        case "errorpage404":
+                            ErrorPage404 = parts[1];
+                            break;
+                        case "hostname":
+                            HostName = parts[1];
+                            break;
+                        case "keepalive":
+                            KeepAlive = Convert.ToBoolean(parts[1]);
+                            break;
+                        case "keepalivelevel":
+                            KeepAliveLevel = Convert.ToInt32(parts[1]);
+                            break;
+                        case "listenertimeout":
+                            ListenerTimeout = Convert.ToInt32(parts[1]);
+                            break;
+                        case "servername":
+                            ServerName = parts[1];
+                            break;
+                    }
                 }
             }
             Console.WriteLine("[Configuration] Loaded.");
