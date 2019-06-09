@@ -7,13 +7,15 @@ The configuration.ini options are:
 <br>
 * [string] certlocation - The location of the PFX file containing the encrypted certificate.
 * [string] certpassword - The password for the certificate.
+* [string] contentdirectory - Where are the files of the ContentServer stored?
+* [string] errorpage404 - What is the relative path of a 404 file?
 * [string] hostname - The hostname for this server, for example: github.com or thewoosh.net
 * [bool] keepalive - Should we reuse the connection?
 * [int32] keepalivelevel - What is the maximum request count we can have until we close the connection?
 * [int32] listenertimeout - How many milliseconds should we wait between TcpListener.Pending() ?
 * [string] servername - The name of the server, used in the Server header.
 
-Only *certlocation*, *certpassword* and *hostname* are required with the default configuration.
+Only *certlocation*, *certpassword* and *hostname* are required with the default configuration. When using the default configuration without making changes, make sure the directory */var/www/html* exists, and the file '/var/www/html/hidden/404.html'
 
 ## License
 This project is licensed under the MIT License.
