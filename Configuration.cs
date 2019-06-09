@@ -30,6 +30,9 @@ namespace TheWoosh.HTTPServer
         public static string CertificateLocation;
         public static string CertificatePassword;
 
+        public static string ContentDirectory = "/var/www/html";
+        public static string ErrorPage404 = "/hidden/404.html";
+
         public static void Load()
         {
             string[] lines = System.IO.File.ReadAllLines("configuration.ini");
@@ -43,6 +46,12 @@ namespace TheWoosh.HTTPServer
                         break;
                     case "certpassword":
                         CertificatePassword = parts[1];
+                        break;
+                    case "contentdirectory":
+                        ContentDirectory = parts[1];
+                        break;
+                    case "errorpage404":
+                        ErrorPage404 = parts[1];
                         break;
                     case "hostname":
                         HostName = parts[1];

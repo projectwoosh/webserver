@@ -19,9 +19,8 @@ namespace TheWoosh.HTTPServer
             SecurityManager.Enable();
 
             PlainRedirectServer = new PlainServer(false, 80);
-            TLSServer = new ContentServingServer(true, 443, "/var/www/html", "/var/www/html/hidden/404.html");
+            TLSServer = new ContentServingServer(true, 443, Configuration.ContentDirectory, Configuration.ErrorPage404);
 
-            ThreadPool.SetMaxThreads(25, 5);
             new Thread(new ThreadStart(PlainRedirectServer.Start)).Start();
             new Thread(new ThreadStart(TLSServer.Start)).Start();
         }

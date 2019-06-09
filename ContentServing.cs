@@ -12,7 +12,8 @@ namespace TheWoosh.HTTPServer
         public string FilesDirectory, File404;
 
         public ContentServingClient(TcpClient client, bool useSecurity,
-            KeepAliveCallback callback, string filesDirectory, string file404)
+            KeepAliveCallback callback, string filesDirectory, 
+            string file404)
             : base(client, useSecurity, callback)
         {
             FilesDirectory = filesDirectory;
@@ -64,7 +65,7 @@ namespace TheWoosh.HTTPServer
             if (!fileFound)
             {
                 flags.Add("error=404");
-                file = File404;
+                file = FilesDirectory + File404;
             }
 
             byte[] data = null;

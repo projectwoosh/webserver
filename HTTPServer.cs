@@ -33,7 +33,7 @@ namespace TheWoosh.HTTPServer
             }
             catch (Exception e)
             {
-                Console.WriteLine("[HTTPServer] Could start on port=" + Port);
+                Console.WriteLine("[HTTPServer] Couldn't start on port=" + Port);
                 Console.WriteLine(e.Message);
                 return;
             }
